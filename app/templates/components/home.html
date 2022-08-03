@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+ 
+  <title>Welcome to PaperInsert</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer_2.css') }}">
+   <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Lato&family=Stoke:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link  rel="stylesheet"  href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/components/bootstrap.css') }}" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+  <link href="{{ url_for('static', filename='css/components/style.css') }}" rel="stylesheet" />
+  <link href="{{ url_for('static', filename='css/components/responsive.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="index.html">
+            <span>
+              <img src="{{ url_for('static', filename='images/logo3.png') }}" width="100px" height="50px">
+              <span id="color">PAPER </span>INSERT
+            </span>
+          </a>
+          <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex mx-auto flex-column flex-lg-row align-items-center" id="myid">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#abt"> ABOUT </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#con1"> FEATURES </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#con2">CONTACT</a>
+                </li>
+                <li style="float:right;">
+                  <a href="/login" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">LOGIN</a>
+                </li>&nbsp;&nbsp;&nbsp;
+                <li style="float:right;">
+                  <a href="C:\Users\SYS-PRO-ADMIN\Downloads\doct1 (1).html" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">PROFILE</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+
+    <div class=" slider_section position-relative">
+              <img src="{{ url_for('static', filename='images/BG PI.png') }}" width="100%" height="400px" id="img">
+            
+              <div class="text">
+               <span id="text1"> PROMOTE</span><br> <span id="text2">YOUR</span><br><span id="text3"> BUSINESS</span><br>
+               <div class="fronpage-button">
+  
+                {% if session == none %}
+                <a href="/signup" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">SIGN UP</a>
+                {% else %}
+                <a href="/form" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">FORM</a>|<a href="/logout" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">LOGOUT</a>
+                {% endif %}
+               </div>
+              </div>
+    </div>
+     
+  <div class="bg">
+    <section class="about_section layout_padding">
+      <div class="container">
+        <div class="custom_heading-container" id="abt">
+          <h3>
+           <span id="con1"> ABOUT</span>&nbsp;<span id="con2">Our &nbsp;COMPANY</span> 
+          </h3>
+        </div>
+        <p class="layout_padding2-top">
+          Paper Insert is used to grow your business from your place of work.Just order us we will help you for promoting your business by advertising your pamplets inserting to the newspapers.You need to submit your design Or if you are not familar with your design we will help your pamphlets get designed.We also provide printing service for your pamplets.we can assure you that your order will be displayed on date without fail.   
+        </p>
+      </div>
+      <div class="container">
+        <div class="btn-box">
+        </div>
+      </div>
+    </section>
+
+
+    <section class="service_section layout_padding-bottom">
+     <div class="item3">
+      
+      <center> <span id="con1"> SERVICES</span>&nbsp;<span id="con2">WE &nbsp;PROVIDE</span> </center>
+
+      
+       <ul>
+           <li>We help you grow your business making pamplets marketing easier</li>
+           <li>We design pamplets for your business</li>
+           <li>We print your pamplets based on your order</li>
+           <li>We assure that your orders will be displayed on time without any delay.</li>
+
+      </ul>
+
+     </div>
+       <img src="{{ url_for('static', filename='images/slider-img.jpg') }}" width="500px" height="300px">
+  </section>
+
+    <section class="service_section layout_padding-bottom">
+      
+        <video controls width="500px" height="300px">
+          <source src="{{ url_for('static', filename='video/introvideo.mp4') }}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+       <div class="item2">
+        <center><span id="head1">WHY CHOOSE US</span><br></center>
+        <p id="para1">We think providing exceptional customer service is our motto and  our main strength. We take pride in providing outstanding services to our clients. We know that our customers are important for us and hence we do not leave any stone unturned in helping, guiding and providing the best possible solutions & after sales services and support to our clients.</p>
+       </div>
+    </section>
+
+
+    <section class="work_section layout_padding" style="background-color:rgb(177, 177, 15);">
+      <div class="container">
+        <div class="custom_heading-container" id="cont">
+          <h3 class=" ">
+            HOW IT WORKS ?
+          </h3>
+        </div>
+      </div>
+      <div class="work_container ">
+        <div class="box b-1">
+          <div class="img-box">
+            Accessing the services on PaperInsert is as easy as it is. With just one click users can access services as per their wish.
+          </div>
+        </div>
+        <div class="box b-2">
+          <div class="img-box ">
+            Users will have the access to all the services once an account has been created.
+          </div>
+        </div>
+        <div class="box b-3">
+          <div class="img-box ">
+            They have the privilage to give feedback about their experience and access to wide range of services available.
+          </div>
+        </div>
+        <div class="box b-4">
+          <div class="img-box ">
+            By creating an account ,user accepts our terms and conditions.
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="btn-box">
+        </div>
+      </div>
+    </section>
+
+
+    
+<br>
+    <section class="client_section layout_padding-bottom" id="con2">
+      
+      <center>
+        <b><label style="color:black;font-size: xxx-large;">CONTACT </label><label style="color:red;font-size: xxx-large;">US</label></b>
+        <br><br><input type="text" placeholder="Name"  class="box" style="width:600px; display:inline-block;">
+        <input type="email" placeholder="Email" style="width:600px; display:inline-block;"><br><br>
+        <textarea rows="4" cols="40" style="width:600px; display:inline-block;">Your message here
+        </textarea><br><br>
+        <button type="button" style="background-color:red;color:white; width:200px;padding: 5px; display:inline-block;">Submit</button>
+    </section>
+           
+  <footer class="footer">
+    <div class="container1">
+      <div class="row">
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="#con1">about us</a></li>
+            <li><a href="#cont">our services</a></li>
+            <li><a href="#">privacy policy</a></li>
+            <li><a href="#">affiliate program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">order status</a></li>
+            <li><a href="#">payment options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Office address </h4>
+          <span class="color">
+            13,ambedkar street,<br>
+            kodampakkam,<br>
+            chennai-607002<br>
+          </span>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/i/flow/login"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+ </footer>
+  
+    <script type="text/javascript" src="{{ url_for('static', filename='js/components/bootstrap.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/components/jquery-3.4.1.min.js.js') }}"></script>
+</body>
+
+</html>

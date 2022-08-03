@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/profile1.css') }}">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>User's Detials</h2>
+   
+        <form autocomplete="off" action="/completeProfile" method="post">
+            <h4>Name</h4>
+             <div class="input-group">
+                <div class="input-box">
+             
+                    {% if dispname != "" %}
+                    <input type="text" placeholder="Full Name" name="fullname" id="fullname" required class="name" value="{{ dispname }}">
+                    {% else %}
+                    <input type="text" placeholder="Full Name" name="fullname" id="fullname" required class="name" value="{{ fullname }}">
+                    {% endif %}
+                    <i class="fa fa-user icon"></i>
+                </div>
+                <div class="input-box">
+                    <input type="text" placeholder="Nick Name" name="nickname" id="nickname" required class="name">
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+    
+                    <input type="email" placeholder="Email Adress" name="email" id="email" class="name" value="{{ email }}">
+                    <i class="fa fa-envelope icon"></i>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="input-box">
+                    <h4> Date of Birth</h4>
+                    <input type="date" name="dob" class="dob">
+                </div>
+                <div class="input-box">
+                    <h4> Gender</h4>
+                    <input type="radio" id="b1" name="gender" value="male"  class="radio">
+                    <label for="b1">Male</label> 
+                    <input type="radio" id="b2" name="gender" value="female" class="radio">
+                    <label for="b2">Female</label>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="tel" placeholder="Phone Number" name="mobNo" maxlength="10" minlength="10" required value="{{ phoneno }}" class="name">
+                    <i class="fa fa-phone icon"></i>
+                </div>
+            </div>
+            
+            <div class="input-group">
+                <div class="input-box">
+                    <input type="submit" class="btn" value="Submit">
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

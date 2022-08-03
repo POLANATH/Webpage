@@ -1,0 +1,457 @@
+:root {
+    --primary-color: rgb(11, 78, 179);
+  }
+  @import url('https://fonts.googleapis.com/css2?family=Lato:ital@0;1&family=Oswald:wght@200;300&family=Poppins:ital,wght@0,200;0,300;0,400;1,200&family=Roboto:ital,wght@0,300;1,300&display=swap');
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  .active 
+  {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    
+  }
+  body {
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  /* Global Stylings */
+  .content
+  {
+    color: blue;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  label{
+      display: block;
+      margin-bottom: 1rem;
+      font-weight: bold;
+  }
+
+  input {
+    caret-color: var(--primary-color);
+  }
+
+  input , .customdrop1{
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid rgb(198, 29, 29);
+    border-radius: 0.25rem;
+    color:black;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  
+  .width-50 {
+    width: 50%;
+  }
+  
+  .ml-auto {
+    margin-left: auto;
+  }
+/*   
+  .text-center {
+    text-align: center;
+  } */
+  
+  /* Progressbar */
+  .progressbar {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    counter-reset: step;
+    margin: 2rem 0 4rem;
+  }
+  
+  .progressbar::before,
+  .progress {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    background-color: #dcdcdc;
+    z-index: -1;
+  }
+  
+  .progress {
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: 0.3s;
+  }
+  
+  .progress-step {
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .progress-step::before {
+    counter-increment: step;
+    content: counter(step);
+  }
+  
+  .progress-step::after {
+    content: attr(data-title);
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  .progress-step-active {
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+  }
+  .item1
+  {
+    
+    width: 50%;
+    height: 100vh;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 40px;
+    
+  }
+  #name
+  {
+    margin-top: 60px;
+    font-size: 40px;
+    margin-left: 30px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+  .top 
+  {
+    display: flex;
+    flex-direction: row;
+  }
+  .item2
+  {
+    width:500px;
+    margin-left: 30px;
+    margin-top: 40px;
+  }
+  table {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.details {
+    background: white;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin: 0 auto;
+    max-width: 500px;
+    text-align: center;
+    align-items: center;
+}
+td,th{
+  border:2px solid yellow;
+  text-align: center;
+  padding: 20px;
+}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:white;
+}
+
+ul.topnav li {float: left;}
+
+ul.topnav li a {
+  display: block;
+  color: red;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-family:'Times New Roman', Times, serif;
+  font-size: 20px;
+}
+.ext
+{
+  margin-top: 5px;
+  margin-right: 2px;
+  color:red;
+}
+.menu
+{
+  width: 100%;
+}
+.same:hover {
+  background-color:rgba(250, 250, 52, 0.864);
+  transform:scale(1.3) ;
+  transition:   all  1s;
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+  ul.topnav li.right, 
+  ul.topnav li {float: none;}
+}
+
+.pop {
+    background-color: yellow;
+    position: absolute;
+    top: 98%;
+    border-radius: 5px;
+    font-family: monospace;
+    padding: 10px;
+    letter-spacing: 2px;
+    font-size: 15px;
+}
+
+  #paper
+  {
+    color:#FAD02C;
+  }
+  .container
+  {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+  /* Form   clamp(320px, 50%, 430px)*/
+  .form {
+    width:100%;
+    margin: 0 auto;
+    border: 2px solid rgb(186, 35, 35);
+    border-radius: 0.35rem;
+    padding: 1.5rem;
+  }
+  
+  .form-step {
+    display: none;
+    transform-origin: top;
+    animation: animate 0.5s;
+  }
+  
+  .form-step-active {
+    display: block;
+  }
+  
+  .input-group {
+    margin: 2rem 0;
+  }
+  
+  @keyframes animate {
+    from {
+      transform: scale(1, 0);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1, 1);
+      opacity: 1;
+    }
+  }
+  
+  /* Button */
+  .btns-group {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .btn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: #f3f3f3;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  .btn:hover {
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+  }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+.verifybtn {
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: #00C897;
+    margin-top: 1.2rem;
+    width: 25%;
+    color: #fff;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+::placeholder {
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+input[type=submit]
+{
+    background-color: #00C897;
+    font-weight: bold;
+    color: #fff;
+    font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+
+}
+
+#tdescription{
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+  height: 15rem;
+  width: 22rem;
+  font-family: Montserrat, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+#tprofileimage{
+    display: none !important;
+}
+
+.profileuplbtn{
+    padding: 0.75rem;
+    display: block;
+    text-decoration: none;
+    background-color: #42C2FF;
+    color: #f3f3f3;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 50%;
+    display: inline-block;
+}
+
+.profileuplbtn:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px green;
+}
+
+#profileimagepreview{
+    padding: 2rem 2.7rem;
+    background-color: #ddd;
+    margin-left: 1rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50px;
+}
+
+#sendotpbtn {
+  text-decoration: none;
+  float: right;
+  position: relative;
+  margin-top: -2.2rem;
+  margin-right: 1rem;
+  color: #fff;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background-color: var(--primary-color);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+#sendotpbtn:hover{
+  box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+}
+
+.chklist{
+  position: relative;
+}
+
+.rupsym{
+  position: absolute;
+  margin-top: -2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+.perhrsym {
+  float: right;
+  position: relative;
+  margin-top: -2rem;
+  margin-right: 1rem;
+  font-size: 15px;
+}
+
+#tchargeph::placeholder {
+  position: relative;
+  left: 0.5rem;
+}
+
+#tchargeph{
+  padding-left: 2rem;
+}
+
+.chklabel {
+  position: absolute !important;
+  margin-top: -1.4rem !important;
+  margin-left: 2rem !important;
+  cursor: pointer;
+  user-select: none;
+  font-weight: normal !important;
+}
+
+input[type=checkbox] {
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+  accent-color: #00C897;
+}
+
+
+
+
+
+@media screen and (max-width: 800px){
+
+  #tdescription{
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 710px){
+
+  #tdescription{
+    width: 17rem;
+  }
+}
+/* 
+.radio{
+    margin-bottom: 0px;
+    display: inline-block;
+}
+
+.radioinput{
+	padding-right: 80px;
+}
+input[type='radio']{
+	margin-left: 10px;
+} */

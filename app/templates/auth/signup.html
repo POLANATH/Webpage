@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Insert</title>
+
+    <!-- External Css -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/auth/login.css') }}" />
+    <link rel="stylesheet" href="../../static/css/auth/login.css"/>
+
+    <!-- font icons -->
+    <link rel="stylesheet" href="../../static/css/vendors/themify-icons/css/themify-icons.css"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/vendors/themify-icons/css/themify-icons.css') }}"/>
+
+    <!-- Jqury cdn  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- BEGIN Pre-requisites -->
+    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer>
+    </script>
+    <!-- END Pre-requisites -->
+
+
+
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="form-container"> 
+          <form autocomplete="off" action="#" id="registration_form" >
+              <h2>SIGNUP</h2>
+              {% if msg['status'] == true %}
+                <p style="color: red;">{{ msg['error'] }}</p>
+              {% endif %}
+              <p id="errorTag" style="color: red;"></p>
+              <div class="input-files">
+                    <input type="text" id="username" minlength="3" name="username" placeholder="username" required>
+
+                    <p class="error_form" id="fname_error_message"></p>
+              
+                  <input type="email" id="email" name="email" placeholder="email" required>
+                  <p class="error_form" id="email_error_message"></p>
+                
+                  <input type="password" name="password" id="password" placeholder="8+ character" required>
+
+                  <span id='message'></span>
+
+                  <input type="password" name="retype_password" id="password2" placeholder="Confirm password" required>
+                  <span id='message'></span>
+
+                  <span toggle="#password" id="hideShow" class="ti-eye"></span>
+                  <span toggle="#password2" id="hideShow2" class="ti-eye"></span>
+                  <br>
+              </div>
+              <button type="submit"  id="signupbtn">Singup</button>
+              <div class="google-btn">
+                <div class="google-icon-wrapper">
+                  <a onclick="googleSignin()"><img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/></a>
+                </div>
+              </div>
+              <div class="form-options">
+                  <ul>
+                      <li>Alreday Member? <a class="underline signup" href="/login">Login</a></li>
+                  </ul>
+              </div>
+          </form>
+      </div>
+  </div>
+
+  <p id="demo"></p>
+
+<script>
+  
+function myFunction() {
+  const inpObj = document.getElementById("id1");
+  if (!inpObj.checkValidity()) {
+    document.getElementById("demo").innerHTML = inpObj.validationMessage;
+  } else {
+    document.getElementById("demo").innerHTML = "Input OK";
+  } 
+} 
+</script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-auth.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+
+       <!-- Google Sign In -->
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+    <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyD4mrtArsE6Ct5mwvlsFRvd7ivM54wHhxI",
+        authDomain: "paperinsert-728e5.firebaseapp.com",
+        projectId: "paperinsert-728e5",
+        storageBucket: "paperinsert-728e5.appspot.com",
+        messagingSenderId: "1011858617668",
+        appId: "1:1011858617668:web:a921d7bbc22753ff9b5311",
+        measurementId: "G-BWH2F522PJ"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      let provider = new firebase.auth.GoogleAuthProvider();
+      
+      const db = new firebase.firestore();
+
+      db.settings({timestampsInSnapshots:true}); 
+
+      let userResp = null;
+
+ 
+
+      function googleSignin() {
+        firebase.auth()
+        
+        .signInWithPopup(provider).then(function(result) {
+           var token = result.credential.accessToken;
+           var user = result.user;
+           userResp = user
+           console.log(token)
+           console.log("USER: ",user)
+           resp = user;
+
+          Newdata = {
+            "session_data":{
+              "username":$("#username").val(),
+              "email":$("#email").val()
+            },
+            "user_data":{
+              //"isNewUser":resp['additionalUserInfo']['isNewUser'],
+              "displayName":resp['displayName'],
+              "email":resp['email'],
+              "emailVerified":resp['emailVerified'],
+              "phoneNumber":resp['phoneNumber'],
+            }
+          }
+
+              console.log("response; ", resp);
+              $.ajax({
+                type: "post",
+                ur:'/signup',
+                data: {"response":Newdata},
+                success: ()=>{
+                  //window.location.href = "/comple";
+                },
+              }
+              );
+
+              db.collection('users').get().then((snapshot) =>{
+                snapshot.docs.forEach(doc=>{
+                  console.log(doc.data(),userResp['email'])
+                  if (doc.data()['email'] == userResp['email']){
+                    console.log(doc.data());
+                    if (doc.data()['completeProfile'] == true){
+                      window.location.href='/';
+                    }
+                  }
+                  else{
+                    window.location.href='/completeProfile';
+                  }
+                })
+              });
+              //
+        }).catch(function(error) {
+           var errorCode = error.code;
+           var errorMessage = error.message;
+             
+           console.log(error.code)
+           console.log(error.message)
+        });
+     }
+     
+     function googleSignout() {
+        firebase.auth().signOut()
+         
+        .then(function() {
+           console.log('Signout Succesfull')
+        }, function(error) {
+           console.log('Signout Failed')  
+        });
+     }
+    
+
+     
+     $("#hideShow").click(function() {
+
+      var input = $("#password");
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+    });
+
+    $("#hideShow2").click(function() {
+
+      var input = $("#password2");
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
+    });
+    var signupbtn=document.getElementById("signupbtn")
+    var emailsignup=document.getElementById("email")
+    var passswordsignup=document.getElementById("password")
+    var usernamesignup=document.getElementById("username")
+    
+    let resp = null;
+  
+    //================Signup With Email and Password==========================
+    signupbtn.onclick=function(){
+
+     
+        signupbtn.disabled=true;
+        signupbtn.textContent="Registering Your Account! Please Wait";
+        firebase.auth().createUserWithEmailAndPassword(emailsignup.value,passswordsignup.value).then(function(response){
+          sendingVerifyEmail(signupbtn);
+          resp = response;
+
+          Newdata = {
+            "session_data":{
+              "username":usernamesignup.value,
+              "email":emailsignup.value
+            },
+            "user_data":{
+              "isNewUser":resp['additionalUserInfo']['isNewUser'],
+              "displayName":resp['user']['displayName'],
+              "email":resp['user']['email'],
+              "emailVerified":resp['user']['emailVerified'],
+              "phoneNumber":resp['user']['phoneNumber'],
+            }
+          }
+
+              console.log("response; ", response);
+              $.ajax({
+                type: "post",
+                ur:'/signup',
+                data: {"response":Newdata},
+                success: ()=>{
+                  //window.location.href = "/comple";
+                },
+              }
+              );
+        })
+        .catch(function(error){
+          signupbtn.disabled=false;
+          signupbtn.textContent="Signup";
+            console.log(error);
+            try {
+            document.getElementById('errorTag').innerHTML = error.message;}
+            catch (RangeError) {
+              console.log('rangeerror')
+            }
+        })
+      }
+  
+  
+    function sendingVerifyEmail(button){
+       firebase.auth().currentUser.sendEmailVerification().then(function(response){
+                  signupbtn.disabled=false;
+          signupbtn.textContent="Signup";
+  
+          console.log(response);
+          window.location.href='/completeProfile'
+       })
+       .catch(function(error){
+                  signupbtn.disabled=false;
+          signupbtn.textContent="Signup";
+  
+           console.log(error);
+
+       })
+    }
+
+    </script>
+
+    <script src="{{ url_for('static', filename='js/auth.js') }}"></script>
+
+      
+  </body>
+</html>

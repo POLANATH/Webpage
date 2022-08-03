@@ -1,0 +1,9 @@
+{"web":
+{"client_id":"862775724629-3jgg59q99m2bdc2edu7c8stct4avkd1f.apps.googleusercontent.com",
+"project_id":"paper-insert",
+"auth_uri":"https://accounts.google.com/o/oauth2/auth",
+"token_uri":"https://oauth2.googleapis.com/token",
+"client_secret":"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",
+"auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs",
+"redirect_uris":["http://127.0.0.1:5000/login/google/authorize","http://127.0.0.1:5000/authorize","http://127.0.0.1:5000/authorized","http://127.0.0.1:5000/google/auth/","https://www.googleapis.com/auth/userinfo.email","https://www.googleapis.com/auth/userinfo.profile","http://127.0.0.1:5000/callback"],
+"javascript_origins":["https://127.0.0.1:5000"]}}

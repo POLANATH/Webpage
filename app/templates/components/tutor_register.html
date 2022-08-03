@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components/footer_2.css') }}">
+     <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Lato&family=Stoke:wght@300&family=Zen+Antique+Soft&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link  rel="stylesheet"  href="https://site-assets.fontawesome.com/releases/v6.1.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Roboto:400,700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/auth/tutor-register-main.css') }}" rel="stylesheet" />
+    <title>Place your order </title>
+    <style>
+      #showpass,#showcpass{
+        float:right;
+        position: relative;
+        top: -33px;
+        right: 10px;
+        cursor: pointer;
+        color: cornflowerblue;
+        outline:none;
+      }
+      ul.topnav
+{
+  width: 100%;
+  background-color: rgba(250, 250, 52, 0.864);
+}
+    </style>
+  </head>
+  <body >
+    <div class="menu">  
+        <ul class="topnav">
+          <li><a href="/" class="same">Home</a></li>
+          <li><a href="/" class="same">About</a></li>
+          <li><a href="/" class="same">Contact</a></li>
+          <li><a href="##" class="same">Features</a></li>
+          <li style="float:right"><a class="active" href="#about">We feel the joy of Serving you Best</a></li>
+        
+       </ul>
+  </div>
+
+   
+    <div class="container">
+      
+        <div class="item1">
+            <div class="top">
+            <img src="{{ url_for('static', filename='images/logo3.png') }}" width="200px" height="200px">
+            <span id="name"><span id="paper">PAPER&nbsp;</span>INSERT</span>
+            </div>
+
+            <div class="details">
+              <table>
+                  <tr>
+                      <th>THANDHI</th>
+                      <th>DINAKARAN</th>
+                      <th>DINAMANI</th>
+                  </tr>
+                  <tr>
+                      <td>14200</td>
+                      <td>5624</td>
+                      <td>1546</td>
+                  </tr>
+                  <tr>
+                      <th>DINAMAR</th>
+                      <th>HINDU</th>
+                      <th>TIMES OF</th>
+                  </tr>
+                  <tr>
+                      <td>6500</td>
+                      <td>5624</td>
+                      <td>1546</td>
+                  </tr>
+                  <tr>
+                      <th>DI THANDHI</th>
+                      <th>DINAKARAN</th>
+                      <th>DINAMANI</th>
+                  </tr>
+                  <tr>
+                      <td>7520</td>
+                      <td>5624</td>
+                      <td>1546</td>
+                  </tr>
+              </table>
+              <div class="pop">
+                  <p class="p">Maximum number of insert in a day 125650</p>
+              </div>
+          </div>
+      
+
+         </div>
+
+           <div class="item2">
+                <form action="/create/" class="form" method="POST" enctype="multipart/form-data">
+      
+                      <h1 class="text-center">Provide the  <span style="color: #ef6d6d">Basic Details</span></h1>
+                       <!-- Progress bar -->
+                      <div class="progressbar">
+                       <div class="progress" id="progress"></div>
+                       <div class="progress-step progress-step-active" data-title=""></div>
+                       <div class="progress-step" data-title=""></div>
+                     </div>
+
+      <!-- 1 -->
+                <div class="form-step form-step-active">
+                    <div class="input-group">
+          
+                     <select id="tname" name="tname" class="customdrop1" >
+                        <option value="">--Select Area--</option>
+                        <option value="chennai">Chennai</option>
+                        <option value="pondicherry">Pondicherry</option>
+                        <option value="madurai">Madurai</option>
+                     </select>
+          
+                    </div>
+                      <div class="input-group">
+                          <select id="tname" name="tname" class="customdrop1" >
+                           <option value="">--Select District--</option>
+                           <option value="thiruvotriyur">Thiruvotriyur</option>
+                           <option value="manali">Manali</option>
+                           <option value="tondiapet">Tondiapet</option>
+                           <option value="ambattur">Ambattur</option>
+                          <option value="annanagar">AnnaNagar</option>
+                           <option value="teynampet">Teynampet</option>
+                          <option value="kodampakkam">Kodampakkam</option>
+                           <option value="adyar">Adyar</option>
+                          </select>
+                        </div>
+       
+
+        <div class="input-group">
+          
+
+         <select id="tname" name="tname" class="customdrop1" >
+          <option value="">--Select Size--</option>
+          <option value="a4">A4 (210 mm X 297 mm)</option>
+          <option value="a5">A5 (148mm X 210 mm)</option>
+          <option value="newsprint">Newsprint(as like newspaper)</option>
+        </select>
+        
+
+        </div>
+
+        <div class="input-group">
+          <select id="tname" name="tname" class="customdrop1" >
+            <option value="">--Designing--</option>
+            <option value="completed">Completed</option>
+            <option value="notcomplete">Not yet complete</option>
+          </select>
+          
+        </div>
+
+        <div class="input-group">
+          <select id="tname" name="tname" class="customdrop1" >
+            <option value="">--Printing--</option>
+            <option value="not">No need</option>
+            <option value="print">I need printing support</option>
+            <option value="design">I need design support</option>
+            <option value="both">I need both support</option>
+            
+          </select>
+        </div>
+
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto">Next</a>
+        </div>
+      </div>
+
+
+      <!-- 2 -->
+
+      <div class="form-step">
+        <div class="radio">
+          <select id="tname" name="tname" class="customdrop1" >
+            <option value="">--Quantity --</option>
+            <option value="1000">1000</option>
+            <option value="2000">2000</option>
+            <option value="3000">3000</option>
+          </select>
+       </div><br><br><br>
+       <div class="radio">
+        <select id="tname" name="tname" class="customdrop1" >
+          <option value="">--Inspection --</option>
+          <option value="yes">Yes I like to inspect</option>
+          <option value="no">No I like to receive proof of photos only</option>
+          <option value="pisupport">I need PI support for inspection </option>
+        </select>        
+     </div>
+   
+     <div class="input-group">
+          <label for="tdob">Date of Display</label>
+          <input type="date" name="tdob" id="tdob"/>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">Previous</a>
+          <input type="submit" value="Submit" class="btn" />
+          <small id="submit-error"></small>
+       
+        </div>
+      </div>
+      </div>
+    </form>
+    </div>
+  </div>
+   <br><br>          
+  <footer class="footer">
+    <div class="container1">
+      <div class="row">
+        <div class="footer-col">
+          <h4>company</h4>
+          <ul>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Desktop\home_project\heustonn-html\home.html">about us</a></li>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Desktop\home_project\heustonn-html\home.html">our services</a></li>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Desktop\home_project\heustonn-html\home.html">privacy policy</a></li>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Desktop\home_project\heustonn-html\home.html">affiliate program</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>get help</h4>
+          <ul>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Downloads\doct1.html">FAQ</a></li>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Downloads\doct1.html">order status</a></li>
+            <li><a href="C:\Users\SYS-PRO-ADMIN\Downloads\doct1.html">payment options</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Office address </h4>
+          <span class="color">
+            13,ambedkar street,<br>
+            kodampakkam,<br>
+            chennai-607002<br>
+          </span>
+        </div>
+        <div class="footer-col">
+          <h4>follow us</h4>
+          <div class="social-links">
+            <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://twitter.com/i/flow/login"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+ </footer>
+
+  </body>
+
+</html>
